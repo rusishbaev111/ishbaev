@@ -1,0 +1,33 @@
+﻿<Window x:Class="ishbaev.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Система учета склада" Height="500" Width="900">
+    <Grid>
+        <TabControl>
+            <TabItem Header="Товары">
+                <Grid>
+                    <DataGrid x:Name="dgProducts" Margin="10,10,10,60" AutoGenerateColumns="True" />
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,10">
+                        <Button Content="Добавить товар" Width="120" Margin="5" Click="AddProduct_Click"/>
+                        <Button Content="Удалить" Width="120" Margin="5" Click="DeleteProduct_Click"/>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="Приёмка">
+                <DataGrid x:Name="dgArrivals" Margin="10" AutoGenerateColumns="True" />
+            </TabItem>
+
+            <TabItem Header="Разгрузка">
+                <DataGrid x:Name="dgUnloading" Margin="10" AutoGenerateColumns="True" />
+            </TabItem>
+
+            <TabItem Header="Бухгалтерия">
+                <DataGrid x:Name="dgAccounting" Margin="10" AutoGenerateColumns="True" />
+            </TabItem>
+        </TabControl>
+
+        <Button Content="Обновить все данные" VerticalAlignment="Bottom" HorizontalAlignment="Right" 
+                Margin="10" Width="150" Height="30" Click="RefreshAll_Click"/>
+    </Grid>
+</Window>

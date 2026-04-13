@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4c9a1304be4b40aeb9aef66589bd1e5b" Name="Diagram1">
+        <EntityTypeShape EntityType="ishbaevModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ishbaevModel.Бухгалтерия" Width="1.5" PointX="3" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ishbaevModel.Приёмка" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ishbaevModel.Разгрузка" Width="1.5" PointX="6" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ishbaevModel.СоставПриёмки" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ishbaevModel.Товары" Width="1.5" PointX="0.75" PointY="4.875" IsExpanded="true" />
+        <AssociationConnector Association="ishbaevModel.FK_Бухгалтерия_Приёмка" ManuallyRouted="false" />
+        <AssociationConnector Association="ishbaevModel.FK_Бухгалтерия_Товары" ManuallyRouted="false" />
+        <AssociationConnector Association="ishbaevModel.FK_Разгрузка_Приёмка" ManuallyRouted="false" />
+        <AssociationConnector Association="ishbaevModel.FK_СостПриёмки_Приёмка" ManuallyRouted="false" />
+        <AssociationConnector Association="ishbaevModel.FK_Разгрузка_Товары" ManuallyRouted="false" />
+        <AssociationConnector Association="ishbaevModel.FK_СостПриёмки_Товары" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

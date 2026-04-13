@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ishbaevModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Бухгалтерия">
+    <Key>
+      <PropertyRef Name="ID_операции" />
+    </Key>
+    <Property Name="ID_операции" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_приёмки" Type="Int32" Nullable="false" />
+    <Property Name="Дата_операции" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Тип_операции" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Сумма" Type="Decimal" Precision="12" Scale="2" />
+    <Property Name="Бухгалтер" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Утвердил_менеджер" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ID_товара" Type="Int32" />
+    <NavigationProperty Name="Приёмка" Relationship="Self.FK_Бухгалтерия_Приёмка" FromRole="Бухгалтерия" ToRole="Приёмка" />
+    <NavigationProperty Name="Товары" Relationship="Self.FK_Бухгалтерия_Товары" FromRole="Бухгалтерия" ToRole="Товары" />
+  </EntityType>
+  <EntityType Name="Приёмка">
+    <Key>
+      <PropertyRef Name="ID_приёмки" />
+    </Key>
+    <Property Name="ID_приёмки" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Дата" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Поставщик" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Количество" Type="Decimal" Precision="12" Scale="3" Nullable="false" />
+    <Property Name="Закупочная_цена" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="Ответственный_менеджер" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Бухгалтерия" Relationship="Self.FK_Бухгалтерия_Приёмка" FromRole="Приёмка" ToRole="Бухгалтерия" />
+    <NavigationProperty Name="Разгрузка" Relationship="Self.FK_Разгрузка_Приёмка" FromRole="Приёмка" ToRole="Разгрузка" />
+    <NavigationProperty Name="СоставПриёмки" Relationship="Self.FK_СостПриёмки_Приёмка" FromRole="Приёмка" ToRole="СоставПриёмки" />
+  </EntityType>
+  <EntityType Name="Разгрузка">
+    <Key>
+      <PropertyRef Name="ID_разгрузки" />
+    </Key>
+    <Property Name="ID_разгрузки" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_приёмки" Type="Int32" Nullable="false" />
+    <Property Name="Дата_разгрузки" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Транспорт" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Водитель" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Грузчик" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Примечание" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ID_товара" Type="Int32" />
+    <NavigationProperty Name="Приёмка" Relationship="Self.FK_Разгрузка_Приёмка" FromRole="Разгрузка" ToRole="Приёмка" />
+    <NavigationProperty Name="Товары" Relationship="Self.FK_Разгрузка_Товары" FromRole="Разгрузка" ToRole="Товары" />
+  </EntityType>
+  <EntityType Name="СоставПриёмки">
+    <Key>
+      <PropertyRef Name="ID_записи" />
+    </Key>
+    <Property Name="ID_записи" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_приёмки" Type="Int32" Nullable="false" />
+    <Property Name="ID_товара" Type="Int32" Nullable="false" />
+    <Property Name="Количество" Type="Decimal" Precision="12" Scale="3" Nullable="false" />
+    <Property Name="Закупочная_цена" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <NavigationProperty Name="Приёмка" Relationship="Self.FK_СостПриёмки_Приёмка" FromRole="СоставПриёмки" ToRole="Приёмка" />
+    <NavigationProperty Name="Товары" Relationship="Self.FK_СостПриёмки_Товары" FromRole="СоставПриёмки" ToRole="Товары" />
+  </EntityType>
+  <EntityType Name="Товары">
+    <Key>
+      <PropertyRef Name="ID_товара" />
+    </Key>
+    <Property Name="ID_товара" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Название" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Цена_розничная" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="Категория" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Штрихкод" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Бухгалтерия" Relationship="Self.FK_Бухгалтерия_Товары" FromRole="Товары" ToRole="Бухгалтерия" />
+    <NavigationProperty Name="Разгрузка" Relationship="Self.FK_Разгрузка_Товары" FromRole="Товары" ToRole="Разгрузка" />
+    <NavigationProperty Name="СоставПриёмки" Relationship="Self.FK_СостПриёмки_Товары" FromRole="Товары" ToRole="СоставПриёмки" />
+  </EntityType>
+  <Association Name="FK_Бухгалтерия_Приёмка">
+    <End Role="Приёмка" Type="Self.Приёмка" Multiplicity="1" />
+    <End Role="Бухгалтерия" Type="Self.Бухгалтерия" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Приёмка">
+        <PropertyRef Name="ID_приёмки" />
+      </Principal>
+      <Dependent Role="Бухгалтерия">
+        <PropertyRef Name="ID_приёмки" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Бухгалтерия_Товары">
+    <End Role="Товары" Type="Self.Товары" Multiplicity="0..1" />
+    <End Role="Бухгалтерия" Type="Self.Бухгалтерия" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Товары">
+        <PropertyRef Name="ID_товара" />
+      </Principal>
+      <Dependent Role="Бухгалтерия">
+        <PropertyRef Name="ID_товара" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Разгрузка_Приёмка">
+    <End Role="Приёмка" Type="Self.Приёмка" Multiplicity="1" />
+    <End Role="Разгрузка" Type="Self.Разгрузка" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Приёмка">
+        <PropertyRef Name="ID_приёмки" />
+      </Principal>
+      <Dependent Role="Разгрузка">
+        <PropertyRef Name="ID_приёмки" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_СостПриёмки_Приёмка">
+    <End Role="Приёмка" Type="Self.Приёмка" Multiplicity="1" />
+    <End Role="СоставПриёмки" Type="Self.СоставПриёмки" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Приёмка">
+        <PropertyRef Name="ID_приёмки" />
+      </Principal>
+      <Dependent Role="СоставПриёмки">
+        <PropertyRef Name="ID_приёмки" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Разгрузка_Товары">
+    <End Role="Товары" Type="Self.Товары" Multiplicity="0..1" />
+    <End Role="Разгрузка" Type="Self.Разгрузка" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Товары">
+        <PropertyRef Name="ID_товара" />
+      </Principal>
+      <Dependent Role="Разгрузка">
+        <PropertyRef Name="ID_товара" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_СостПриёмки_Товары">
+    <End Role="Товары" Type="Self.Товары" Multiplicity="1" />
+    <End Role="СоставПриёмки" Type="Self.СоставПриёмки" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Товары">
+        <PropertyRef Name="ID_товара" />
+      </Principal>
+      <Dependent Role="СоставПриёмки">
+        <PropertyRef Name="ID_товара" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ishbaevEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="Бухгалтерия" EntityType="Self.Бухгалтерия" />
+    <EntitySet Name="Приёмка" EntityType="Self.Приёмка" />
+    <EntitySet Name="Разгрузка" EntityType="Self.Разгрузка" />
+    <EntitySet Name="СоставПриёмки" EntityType="Self.СоставПриёмки" />
+    <EntitySet Name="Товары" EntityType="Self.Товары" />
+    <AssociationSet Name="FK_Бухгалтерия_Приёмка" Association="Self.FK_Бухгалтерия_Приёмка">
+      <End Role="Приёмка" EntitySet="Приёмка" />
+      <End Role="Бухгалтерия" EntitySet="Бухгалтерия" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Бухгалтерия_Товары" Association="Self.FK_Бухгалтерия_Товары">
+      <End Role="Товары" EntitySet="Товары" />
+      <End Role="Бухгалтерия" EntitySet="Бухгалтерия" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Разгрузка_Приёмка" Association="Self.FK_Разгрузка_Приёмка">
+      <End Role="Приёмка" EntitySet="Приёмка" />
+      <End Role="Разгрузка" EntitySet="Разгрузка" />
+    </AssociationSet>
+    <AssociationSet Name="FK_СостПриёмки_Приёмка" Association="Self.FK_СостПриёмки_Приёмка">
+      <End Role="Приёмка" EntitySet="Приёмка" />
+      <End Role="СоставПриёмки" EntitySet="СоставПриёмки" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Разгрузка_Товары" Association="Self.FK_Разгрузка_Товары">
+      <End Role="Товары" EntitySet="Товары" />
+      <End Role="Разгрузка" EntitySet="Разгрузка" />
+    </AssociationSet>
+    <AssociationSet Name="FK_СостПриёмки_Товары" Association="Self.FK_СостПриёмки_Товары">
+      <End Role="Товары" EntitySet="Товары" />
+      <End Role="СоставПриёмки" EntitySet="СоставПриёмки" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

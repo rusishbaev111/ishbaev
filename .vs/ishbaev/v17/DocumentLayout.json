@@ -1,0 +1,52 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\\u041C\u0430\u043C\u0430\\Desktop\\ishbaev\\ishbaev\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{19ABB4DB-F653-4EC1-A85F-CBD47AE086CE}|ishbaev\\ishbaev.csproj|c:\\users\\\u043C\u0430\u043C\u0430\\desktop\\ishbaev\\ishbaev\\ishbaev\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{19ABB4DB-F653-4EC1-A85F-CBD47AE086CE}|ishbaev\\ishbaev.csproj|solutionrelative:ishbaev\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{19ABB4DB-F653-4EC1-A85F-CBD47AE086CE}|ishbaev\\ishbaev.csproj|C:\\Users\\\u041C\u0430\u043C\u0430\\Desktop\\ishbaev\\ishbaev\\ishbaev\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{19ABB4DB-F653-4EC1-A85F-CBD47AE086CE}|ishbaev\\ishbaev.csproj|solutionrelative:ishbaev\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 106,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\\u041C\u0430\u043C\u0430\\Desktop\\ishbaev\\ishbaev\\ishbaev\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "ishbaev\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\\u041C\u0430\u043C\u0430\\Desktop\\ishbaev\\ishbaev\\ishbaev\\MainWindow.xaml",
+              "RelativeToolTip": "ishbaev\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-13T16:26:57.361Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\\u041C\u0430\u043C\u0430\\Desktop\\ishbaev\\ishbaev\\ishbaev\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "ishbaev\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\\u041C\u0430\u043C\u0430\\Desktop\\ishbaev\\ishbaev\\ishbaev\\MainWindow.xaml.cs",
+              "RelativeToolTip": "ishbaev\\MainWindow.xaml.cs",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAQwDkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-13T16:09:55.534Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
